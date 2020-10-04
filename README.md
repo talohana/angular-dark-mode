@@ -5,8 +5,9 @@
 <hr />
 
 ![GitHub](https://img.shields.io/github/license/talohana/ngx-dark-theme)
-![Travis (.com)](https://img.shields.io/travis/com/talohana/ngx-dark-theme)
 ![Codecov](https://img.shields.io/codecov/c/github/talohana/ngx-dark-theme)
+![Travis (.com)](https://img.shields.io/travis/com/talohana/ngx-dark-theme)
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 ngx-dark-theme is a zero-dependency library that helps you integrate dark mode into you Angular applications with ease!
 
