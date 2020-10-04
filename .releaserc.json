@@ -1,0 +1,24 @@
+{
+  "plugins": [
+    [
+      "@semantic-release/commit-analyzer",
+      {
+        "preset": "angular",
+        "releaseRules": [
+          { "type": "docs", "release": "patch" },
+          { "type": "refactor", "release": "patch" },
+          { "type": "chore", "release": "patch" }
+        ]
+      }
+    ],
+    "@semantic-release/release-notes-generator",
+    "@semantic-release/changelog",
+    "@semantic-release/git",
+    [
+      "@semantic-release/npm",
+      {
+        "pkgRoot": "dist/ngx-dark-theme"
+      }
+    ]
+  ]
+}
