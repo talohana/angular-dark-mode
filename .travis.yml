@@ -1,0 +1,35 @@
+language: node_js
+
+node_js:
+  - lts/*
+
+notifications:
+  email:
+    if: branch = master
+    on_success: never
+    on_failure: always
+
+cache:
+  yarn: true
+
+install:
+  - yarn --frozen-lockfile
+  - yarn global add codecov
+
+script:
+  - yarn test:ci
+  - codecov
+  - yarn package
+
+jobs:
+  include:
+    # Define the release stage that runs semantic-release
+    - stage: release
+      node_js: lts/*
+      # Advanced: optionally overwrite your default `script` step to skip the tests
+      # script: skip
+      deploy:
+        provider: script
+        skip_cleanup: true
+        script:
+          - yarn semantic-release

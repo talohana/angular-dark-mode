@@ -1,0 +1,82 @@
+{
+  "name": "ngx-dark-theme-library",
+  "version": "0.0.0-development",
+  "license": "MIT",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/talohana/ngx-dark-theme"
+  },
+  "scripts": {
+    "ng": "ng",
+    "start:app": "ng serve ngx-dark-theme-app",
+    "build:lib": "ng build --prod ngx-dark-theme",
+    "test": "jest --config jest.config.js",
+    "test:watch": "jest --config jest.config.js --watch",
+    "test:ci": "jest --config jest.config.js --runInBand",
+    "commit": "git-cz",
+    "lint": "eslint . --ext .js,.ts",
+    "lint:fix": "npm run lint -- --fix",
+    "format": "prettier --write .",
+    "copy-files": "cp -t dist/ngx-dark-theme README.md LICENSE",
+    "package": "run-s clean build:lib copy-files",
+    "clean": "rimraf dist",
+    "semantic-release": "semantic-release"
+  },
+  "dependencies": {
+    "@angular/animations": "~10.1.4",
+    "@angular/common": "~10.1.4",
+    "@angular/compiler": "~10.1.4",
+    "@angular/core": "~10.1.4",
+    "@angular/forms": "~10.1.4",
+    "@angular/platform-browser": "~10.1.4",
+    "@angular/platform-browser-dynamic": "~10.1.4",
+    "@angular/router": "~10.1.4",
+    "rxjs": "~6.6.0",
+    "tslib": "^2.0.0",
+    "zone.js": "~0.10.2"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~0.1001.4",
+    "@angular/cli": "~10.1.4",
+    "@angular/compiler-cli": "~10.1.4",
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/git": "^9.0.0",
+    "@types/jest": "^26.0.14",
+    "@types/jest-when": "^2.7.1",
+    "@types/node": "^12.11.1",
+    "@typescript-eslint/eslint-plugin": "^4.3.0",
+    "@typescript-eslint/parser": "^4.3.0",
+    "commitizen": "^4.2.1",
+    "eslint": "^7.10.0",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "husky": "^4.3.0",
+    "jest": "^26.4.2",
+    "jest-localstorage-mock": "^2.4.3",
+    "jest-marbles": "^2.5.1",
+    "jest-preset-angular": "^8.3.1",
+    "jest-when": "^2.7.2",
+    "lint-staged": "^10.4.0",
+    "ng-packagr": "^10.1.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.1.2",
+    "rimraf": "^3.0.2",
+    "semantic-release": "^17.1.2",
+    "ts-node": "~8.3.0",
+    "typescript": "~4.0.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  }
+}

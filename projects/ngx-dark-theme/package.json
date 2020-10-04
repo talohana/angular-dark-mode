@@ -1,0 +1,32 @@
+{
+  "name": "ngx-dark-theme",
+  "description": "ngx-dark-theme is a zero-dependency library that helps you integrate dark mode into you Angular applications with ease!",
+  "version": "0.0.0-development",
+  "license": "MIT",
+  "keywords": [
+    "angular",
+    "angular 2",
+    "dark mode",
+    "dark theme",
+    "dark"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/talohana/ngx-storage-api"
+  },
+  "author": {
+    "name": "Tal Ohana",
+    "email": "tal.ohana.x@gmail.com",
+    "url": "https://github.com/talohana"
+  },
+  "peerDependencies": {
+    "@angular/common": "^10.1.4",
+    "@angular/core": "^10.1.4"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  }
+}
