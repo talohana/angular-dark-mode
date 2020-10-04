@@ -17,7 +17,7 @@ module.exports = {
     [
       '@semantic-release/npm',
       {
-        pkgRoot: 'dist/ngx-storage-api',
+        pkgRoot: 'dist/ngx-dark-theme',
       },
     ],
   ],
