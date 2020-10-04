@@ -3,7 +3,7 @@ module.exports = {
     [
       '@semantic-release/commit-analyzer',
       {
-        preset: 'eslint',
+        preset: 'angular',
         releaseRules: [
           { tag: 'docs', release: 'patch' },
           { tag: 'chore', release: 'patch' },
@@ -11,14 +11,13 @@ module.exports = {
         ],
       },
     ],
-    '@semantic-release/commit-analyzer',
     '@semantic-release/release-notes-generator',
     '@semantic-release/changelog',
     '@semantic-release/git',
     [
       '@semantic-release/npm',
       {
-        pkgRoot: 'dist/ngx-dark-theme',
+        pkgRoot: 'dist/ngx-storage-api',
       },
     ],
   ],
