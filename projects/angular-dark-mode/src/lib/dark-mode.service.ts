@@ -29,6 +29,7 @@ export class DarkModeService {
     this.renderer = this.rendererFactory.createRenderer(null, null);
     this.darkModeSubject$ = new BehaviorSubject(this.getInitialDarkModeValue());
     this.darkModeSubject$.getValue() ? this.enable() : this.disable();
+    this.removePreloadingClass();
   }
 
   /**
@@ -89,5 +90,15 @@ export class DarkModeService {
     }
 
     return null;
+  }
+
+  private removePreloadingClass(): void {
+    // defer to next tick
+    setTimeout(() => {
+      this.renderer.removeClass(
+        this.options.element,
+        this.options.preloadingClass
+      );
+    });
   }
 }

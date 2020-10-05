@@ -31,9 +31,19 @@ or if you are using yarn:
 yarn add angular-dark-mode
 ```
 
+and add `angular-dark-mode.js` file to `angular.json` scripts section:
+
+```json
+{
+  "scripts": ["./node_modules/angular-dark-mode/angular-dark-mode.js"]
+}
+```
+
+if you are using custom configuration see [angular-dark-mode.js](#angular-dark-mode.js)
+
 ## Usage
 
-In order to use angular-dark-mode you need to inject the service somewhere in your applications - presumably where you hold the dark mode toggle, and get the dark mode value from the exported `darkmode$` Observable:
+In order to use angular-dark-mode you need to inject the service somewhere in your applications - presumably where you hold the dark mode toggle, and get the dark mode value from the exported `darkMode$` Observable:
 
 ```ts
 // dark-mode-toggle.component.ts
@@ -42,7 +52,7 @@ In order to use angular-dark-mode you need to inject the service somewhere in yo
   selector: 'app-dark-mode-toggle',
   template: `<input
     type="checkbox"
-    [checked]="darkmode$ | async"
+    [checked]="darkMode$ | async"
     (change)="onToggle()"
   />`,
 })
@@ -94,12 +104,13 @@ Save and run your application, play with the toggle button to change between mod
 
 `angular-dark-mode` ships with the following options:
 
-| Option         |                 Description                 |   Default Value |
-| -------------- | :-----------------------------------------: | --------------: |
-| darkModeClass  |          dark mode css class name           |     `dark-mode` |
-| lightModeClass |          light mode css class name          |    `light-mode` |
-| storageKey     |    localStorage key to persist dark mode    |     `dark-mode` |
-| element        | target HTMLElement to set given css classes | `document.body` |
+| Option          |                         Description                          |          Default Value |
+| --------------- | :----------------------------------------------------------: | ---------------------: |
+| darkModeClass   |                   dark mode css class name                   |            `dark-mode` |
+| lightModeClass  |                  light mode css class name                   |           `light-mode` |
+| preloadingClass | css class name to flag that `element` is in preloading state | `dark-mode-preloading` |
+| storageKey      |            localStorage key to persist dark mode             |            `dark-mode` |
+| element         |         target HTMLElement to set given css classes          |        `document.body` |
 
 <br />
 
@@ -124,16 +135,28 @@ import { DARK_MODE_OPTIONS } from 'angular-dark-mode';
 export class AppModule {}
 ```
 
-## No Flash
+## angular-dark-mode.js
 
-When the page is refreshed it causes colors to flash, to avoid it we need to set the dark/light mode class name before the page loads.
+This file has multiple purposes:
 
-To resolve this problem include a file `no-flash.js` shipped with angular-dark-mode in your `angular.json` scripts section
+1. Persistence - retrieve previous dark mode state from `localStorage` if empty falls back to [`(prefers-color-scheme: dark)` media query](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme)
+2. Preloading - set a `preloadingClass` to `document.body` which can be used to prevent initial transitioning
 
-```json
-{
-  "scripts": ["./node_modules/angular-dark-mode/no-flash.js"]
+If you are using the default configurations, adding the `angular-dark-mode.js` file bundled with this library is enough.
+
+In any other case, copy `angular-dark-mode.js` locally, make the necessary changes and load it instead of the bundled one.
+
+### Transitioning
+
+It is often useful to transition the changes between dark and light modes, and most of the time we would want to skip the initial transition, in order to achieve this use the `preloadingClass` option like so:
+
+```css
+/* styles.css */
+...
+
+body:not(.dark-mode-preloading) {
+  transition: all 0.3s linear;
 }
-```
 
-In case you changed the default options, copy [`no-flash.js`](./projects/angular-dark-mode/no-flash.js) locally, configure it accordingly and include it in your `angular.json` scripts section.
+...
+```
