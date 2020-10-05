@@ -51,7 +51,7 @@
             "aot": true,
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": ["src/styles.css"],
-            "scripts": ["./projects/angular-dark-mode/no-flash.js"]
+            "scripts": ["./projects/angular-dark-mode/angular-dark-mode.js"]
           },
           "configurations": {
             "production": {

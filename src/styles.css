@@ -3,6 +3,10 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+body:not(.dark-mode-preloading) {
+  transition: all 0.3s linear;
+}
+
 body.dark-mode {
   background-color: #2d3436;
   color: #dfe6e9;

@@ -1,4 +1,5 @@
 import { Renderer2, RendererFactory2 } from '@angular/core';
+import { fakeAsync, tick } from '@angular/core/testing';
 import { hot } from 'jest-marbles';
 import { when } from 'jest-when';
 import { DarkModeService } from '../dark-mode.service';
@@ -151,6 +152,19 @@ describe('DarkModeService', () => {
         providedOptions.lightModeClass
       );
     });
+
+    it('should remove preloadingClass after loading', fakeAsync(() => {
+      createService();
+
+      tick();
+
+      // for enable/disable and remove preloading class
+      expect(rendererMock.removeClass).toHaveBeenCalledTimes(2);
+      expect(rendererMock.removeClass).toHaveBeenCalledWith(
+        defaultOptions.element,
+        defaultOptions.preloadingClass
+      );
+    }));
   });
 
   describe('toggle', () => {

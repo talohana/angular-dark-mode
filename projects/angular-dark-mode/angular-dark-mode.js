@@ -9,6 +9,7 @@
 (function () {
   var darkModeClass = 'dark-mode';
   var lightModeClass = 'light-mode';
+  var preloadingClass = 'dark-mode-preloading';
   var storageKey = 'dark-mode';
 
   var darkModeFromStorage = localStorage[storageKey];
@@ -29,6 +30,7 @@
   }
 
   document.body.classList.add(
+    preloadingClass,
     initialDarkModeValue ? darkModeClass : lightModeClass
   );
 })();
