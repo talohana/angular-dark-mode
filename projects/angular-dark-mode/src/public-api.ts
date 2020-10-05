@@ -1,5 +1,5 @@
 /*
- * Public API Surface of ngx-dark-theme
+ * Public API Surface of angular-dark-mode
  */
 
 export * from './lib/dark-mode-options';

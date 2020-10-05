@@ -1,16 +1,16 @@
 {
-  "name": "ngx-dark-theme-library",
+  "name": "angular-dark-mode-library",
   "version": "0.0.0-development",
   "license": "MIT",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/talohana/ngx-dark-theme"
+    "url": "https://github.com/talohana/angular-dark-mode"
   },
   "scripts": {
     "ng": "ng",
-    "start:app": "ng serve ngx-dark-theme-app",
-    "build:lib": "ng build --prod ngx-dark-theme",
+    "start:app": "ng serve angular-dark-mode-app",
+    "build:lib": "ng build --prod angular-dark-mode",
     "test": "jest --config jest.config.js",
     "test:watch": "jest --config jest.config.js --watch",
     "test:ci": "jest --config jest.config.js --runInBand",
@@ -18,7 +18,7 @@
     "lint": "eslint . --ext .js,.ts",
     "lint:fix": "npm run lint -- --fix",
     "format": "prettier --write .",
-    "copy-files": "cp -t dist/ngx-dark-theme README.md LICENSE",
+    "copy-files": "cp -t dist/angular-dark-mode README.md LICENSE",
     "package": "run-s clean build:lib copy-files",
     "clean": "rimraf dist",
     "semantic-release": "semantic-release"

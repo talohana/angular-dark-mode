@@ -22,7 +22,7 @@
       var parsedDarkModeFromStorage = JSON.parse(darkModeFromStorage);
       initialDarkModeValue = parsedDarkModeFromStorage.darkMode;
     } catch (err) {
-      console.warn('Error initializing ngx-dark-theme');
+      console.warn('Error initializing angular-dark-mode');
       console.warn(err);
       return;
     }

@@ -1,6 +1,6 @@
 {
-  "name": "ngx-dark-theme",
-  "description": "Add dark theme to your Angular applications with ease!",
+  "name": "angular-dark-mode",
+  "description": "Add dark mode to your Angular applications with ease!",
   "version": "0.0.0-development",
   "license": "MIT",
   "keywords": [
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/talohana/ngx-storage-api"
+    "url": "https://github.com/talohana/angular-dark-mode"
   },
   "author": {
     "name": "Tal Ohana",

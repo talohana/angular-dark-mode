@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "ngx-dark-theme-app": {
+    "angular-dark-mode-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -43,7 +43,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ngx-dark-theme-app",
+            "outputPath": "dist/angular-dark-mode-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -51,7 +51,7 @@
             "aot": true,
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": ["src/styles.css"],
-            "scripts": ["./projects/ngx-dark-theme/no-flash.js"]
+            "scripts": ["./projects/angular-dark-mode/no-flash.js"]
           },
           "configurations": {
             "production": {
@@ -87,42 +87,42 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ngx-dark-theme-app:build"
+            "browserTarget": "angular-dark-mode-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ngx-dark-theme-app:build:production"
+              "browserTarget": "angular-dark-mode-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ngx-dark-theme-app:build"
+            "browserTarget": "angular-dark-mode-app:build"
           }
         }
       }
     },
-    "ngx-dark-theme": {
+    "angular-dark-mode": {
       "projectType": "library",
-      "root": "projects/ngx-dark-theme",
-      "sourceRoot": "projects/ngx-dark-theme/src",
+      "root": "projects/angular-dark-mode",
+      "sourceRoot": "projects/angular-dark-mode/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "tsConfig": "projects/ngx-dark-theme/tsconfig.lib.json",
-            "project": "projects/ngx-dark-theme/ng-package.json"
+            "tsConfig": "projects/angular-dark-mode/tsconfig.lib.json",
+            "project": "projects/angular-dark-mode/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/ngx-dark-theme/tsconfig.lib.prod.json"
+              "tsConfig": "projects/angular-dark-mode/tsconfig.lib.prod.json"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "ngx-dark-theme-app"
+  "defaultProject": "angular-dark-mode-app"
 }
