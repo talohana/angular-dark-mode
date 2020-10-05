@@ -5,7 +5,11 @@ describe('isNil', () => {
     expect(isNil(null)).toBe(true);
   });
 
-  it('should return true for non-null value', () => {
+  it('should return true for undefined value', () => {
+    expect(isNil(undefined)).toBe(true);
+  });
+
+  it('should return false for non null/undefined value', () => {
     expect(isNil('non-null')).toBe(false);
   });
 });
