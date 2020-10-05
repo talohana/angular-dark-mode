@@ -94,12 +94,12 @@ Save and run your application, play with the toggle button to change between the
 
 `ngx-dark-theme` ships with the following options:
 
-| Option         |               Description                |   Default Value |
-| -------------- | :--------------------------------------: | --------------: |
-| darkModeClass  | The class name to set when in dark mode  |     `dark-mode` |
-| lightModeClass | The class name to set when in light mode |    `light-mode` |
-| storageKey     | localStorage key to persis the dark mode |     `dark-mode` |
-| element        |      HTMLElement to set the classes      | `document.body` |
+| Option         |                 Description                 |   Default Value |
+| -------------- | :-----------------------------------------: | --------------: |
+| darkModeClass  |          dark mode css class name           |     `dark-mode` |
+| lightModeClass |          light mode css class name          |    `light-mode` |
+| storageKey     |    localStorage key to persist dark mode    |     `dark-mode` |
+| element        | target HTMLElement to set given css classes | `document.body` |
 
 <br />
 

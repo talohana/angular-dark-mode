@@ -11,7 +11,7 @@ import { DarkModeOptions } from './types';
  *     provide: DARK_MODE_OPTIONS,
  *     useValue: {
  *       darkModeClass: 'my-dark-mode',
- *       darkModeClass: 'my-light-mode',
+ *       lightModeClass: 'my-light-mode',
  *     },
  *   },
  * ]

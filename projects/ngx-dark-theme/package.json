@@ -1,6 +1,6 @@
 {
   "name": "ngx-dark-theme",
-  "description": "ngx-dark-theme is a zero-dependency library that helps you integrate dark mode into you Angular applications with ease!",
+  "description": "Add dark theme to your Angular applications with ease!",
   "version": "0.0.0-development",
   "license": "MIT",
   "keywords": [
