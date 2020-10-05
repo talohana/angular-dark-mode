@@ -1,5 +1,5 @@
 <p align="center">
-    <img width="50%" height="50%" src="https://raw.githubusercontent.com/talohana/angular-dark-mode/master/logo.svg" />
+    <img width="50%" src="https://raw.githubusercontent.com/talohana/angular-dark-mode/master/logo.svg" />
 </p>
 
 <hr />
@@ -33,7 +33,7 @@ yarn add angular-dark-mode
 
 ## Usage
 
-In order to use angular-dark-mode you need to inject the service somewhere in your applications - presumably where you hold the dark mode toggle, and get the dark mode value from the exported `darkmode$` Observable:
+In order to use angular-dark-mode you need to inject the service somewhere in your applications - presumably where you hold the dark mode toggle, and get the dark mode value from the exported `darkMode$` Observable:
 
 ```ts
 // dark-mode-toggle.component.ts
@@ -42,7 +42,7 @@ In order to use angular-dark-mode you need to inject the service somewhere in yo
   selector: 'app-dark-mode-toggle',
   template: `<input
     type="checkbox"
-    [checked]="darkmode$ | async"
+    [checked]="darkMode$ | async"
     (change)="onToggle()"
   />`,
 })
@@ -94,12 +94,13 @@ Save and run your application, play with the toggle button to change between mod
 
 `angular-dark-mode` ships with the following options:
 
-| Option         |                 Description                 |   Default Value |
-| -------------- | :-----------------------------------------: | --------------: |
-| darkModeClass  |          dark mode css class name           |     `dark-mode` |
-| lightModeClass |          light mode css class name          |    `light-mode` |
-| storageKey     |    localStorage key to persist dark mode    |     `dark-mode` |
-| element        | target HTMLElement to set given css classes | `document.body` |
+| Option         |                  Description                  |      Default Value |
+| -------------- | :-------------------------------------------: | -----------------: |
+| darkModeClass  |           dark mode css class name            |        `dark-mode` |
+| lightModeClass |           light mode css class name           |       `light-mode` |
+| loadedClass    | css class name to flag the service has loaded | `dark-mode-loaded` |
+| storageKey     |     localStorage key to persist dark mode     |        `dark-mode` |
+| element        |  target HTMLElement to set given css classes  |    `document.body` |
 
 <br />
 
@@ -137,3 +138,20 @@ To resolve this problem include a file `no-flash.js` shipped with angular-dark-m
 ```
 
 In case you changed the default options, copy [`no-flash.js`](./projects/angular-dark-mode/no-flash.js) locally, configure it accordingly and include it in your `angular.json` scripts section.
+
+### Transitioning
+
+Most of the times we want to transition between light and dark modes, we can do this by adding `transition` property to the body element for example.
+
+In order to prevent the initial transition you can use the `loadedClass` option which sets a css class to the provided `element` once the service has loaded, for example:
+
+```css
+/* styles.css */
+...
+
+body.dark-mode-loaded {
+  transition: all 0.3s linear;
+}
+
+...
+```

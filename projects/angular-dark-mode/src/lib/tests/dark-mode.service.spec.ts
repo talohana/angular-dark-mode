@@ -1,4 +1,5 @@
 import { Renderer2, RendererFactory2 } from '@angular/core';
+import { fakeAsync, tick } from '@angular/core/testing';
 import { hot } from 'jest-marbles';
 import { when } from 'jest-when';
 import { DarkModeService } from '../dark-mode.service';
@@ -151,6 +152,19 @@ describe('DarkModeService', () => {
         providedOptions.lightModeClass
       );
     });
+
+    it('should set loadedClass after loading', fakeAsync(() => {
+      createService();
+
+      tick();
+
+      // one for enable/disable and next for adding loaded class
+      expect(rendererMock.addClass).toHaveBeenCalledTimes(2);
+      expect(rendererMock.addClass).toHaveBeenCalledWith(
+        defaultOptions.element,
+        defaultOptions.loadedClass
+      );
+    }));
   });
 
   describe('toggle', () => {

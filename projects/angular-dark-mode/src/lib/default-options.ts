@@ -6,6 +6,7 @@ import { DarkModeOptions } from './types';
 export const defaultOptions: DarkModeOptions = {
   darkModeClass: 'dark-mode',
   lightModeClass: 'light-mode',
+  loadedClass: 'dark-mode-loaded',
   storageKey: 'dark-mode',
   element: document.body,
 };
