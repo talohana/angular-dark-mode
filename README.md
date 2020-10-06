@@ -8,6 +8,9 @@
 ![Codecov](https://img.shields.io/codecov/c/github/talohana/angular-dark-mode)
 ![Travis (.com)](https://img.shields.io/travis/com/talohana/angular-dark-mode)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+![npm bundle size](https://img.shields.io/bundlephobia/min/angular-dark-mode)
+![npm](https://img.shields.io/npm/v/angular-dark-mode)
+![npm](https://img.shields.io/npm/dw/angular-dark-mode)
 
 angular-dark-mode is a zero-dependency library that helps you integrate dark mode into you Angular applications with ease!
 
