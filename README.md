@@ -14,6 +14,8 @@
 
 angular-dark-mode is a zero-dependency library that helps you integrate dark mode into you Angular applications with ease!
 
+Live demo on [this stackblitz](https://stackblitz.com/edit/angular-dark-mode-example?file=src/app/app.component.ts)
+
 Inspired by the awesome [use-dark-mode](https://github.com/donavon/use-dark-mode) library
 
 <p align="center">
