@@ -1,5 +1,5 @@
 <p align="center">
-    <img width="50%" src="https://raw.githubusercontent.com/talohana/angular-dark-mode/master/logo.svg" />
+    <img width="600px" src="https://raw.githubusercontent.com/talohana/angular-dark-mode/master/logo.svg" />
 </p>
 
 <hr />
@@ -13,8 +13,8 @@ angular-dark-mode is a zero-dependency library that helps you integrate dark mod
 
 Inspired by the awesome [use-dark-mode](https://github.com/donavon/use-dark-mode) library
 
-<p align="left">
-  <img width="40%" src="https://raw.githubusercontent.com/talohana/angular-dark-mode/master/example.gif" />
+<p align="center">
+  <img width="400px" src="https://raw.githubusercontent.com/talohana/angular-dark-mode/master/example.gif" />
 </p>
 
 ## Installation

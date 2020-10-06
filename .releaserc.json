@@ -5,7 +5,7 @@
       {
         "preset": "angular",
         "releaseRules": [
-          { "type": "docs", "release": "patch" },
+          { "type": "docs", "scope": "readme", "release": "patch" },
           { "type": "refactor", "release": "patch" },
           { "type": "chore", "release": "patch" }
         ]
