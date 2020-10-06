@@ -104,13 +104,13 @@ Save and run your application, play with the toggle button to change between mod
 
 `angular-dark-mode` ships with the following options:
 
-| Option          |                         Description                          |          Default Value |
-| --------------- | :----------------------------------------------------------: | ---------------------: |
-| darkModeClass   |                   dark mode css class name                   |            `dark-mode` |
-| lightModeClass  |                  light mode css class name                   |           `light-mode` |
-| preloadingClass | css class name to flag that `element` is in preloading state | `dark-mode-preloading` |
-| storageKey      |            localStorage key to persist dark mode             |            `dark-mode` |
-| element         |         target HTMLElement to set given css classes          |        `document.body` |
+| Option          |                         Description                          |          Default Value   |
+| --------------- | :----------------------------------------------------------: | -----------------------: |
+| darkModeClass   |                   dark mode css class name                   |            `'dark-mode'` |
+| lightModeClass  |                  light mode css class name                   |           `'light-mode'` |
+| preloadingClass | css class name to flag that `element` is in preloading state | `'dark-mode-preloading'` |
+| storageKey      |            localStorage key to persist dark mode             |            `'dark-mode'` |
+| element         |         target HTMLElement to set given css classes          |        `document.body`   |
 
 <br />
 
