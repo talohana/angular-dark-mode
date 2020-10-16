@@ -12,8 +12,7 @@ notifications:
 cache:
   yarn: true
 
-install:
-  - yarn --frozen-lockfile
+before_install:
   - yarn global add codecov
 
 script:
