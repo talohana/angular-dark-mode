@@ -23,8 +23,8 @@
     "url": "https://github.com/talohana"
   },
   "peerDependencies": {
-    "@angular/common": "^10.1.4",
-    "@angular/core": "^10.1.4"
+    "@angular/common": "^11.2.10",
+    "@angular/core": "^11.2.10"
   },
   "dependencies": {
     "tslib": "^2.0.0"
