@@ -9,5 +9,17 @@
   ],
   "imageSize": 100,
   "commit": true,
-  "contributors": []
+  "contributors": [
+    {
+      "login": "talohana",
+      "name": "Tal Ohana",
+      "avatar_url": "https://avatars.githubusercontent.com/u/24203431?v=4",
+      "profile": "https://talohana.com/",
+      "contributions": [
+        "code",
+        "doc",
+        "maintenance"
+      ]
+    }
+  ]
 }
