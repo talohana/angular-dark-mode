@@ -1,0 +1,13 @@
+{
+  "projectName": "angular-dark-mode",
+  "projectOwner": "TalOhana",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "commitConvention": "angular",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "contributors": []
+}

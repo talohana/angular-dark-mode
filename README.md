@@ -165,3 +165,17 @@ body:not(.dark-mode-preloading) {
 
 ...
 ```
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://talohana.com/"><img src="https://avatars.githubusercontent.com/u/24203431?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Tal Ohana</b></sub></a><br /><a href="https://github.com/TalOhana/angular-dark-mode/commits?author=talohana" title="Code">💻</a> <a href="https://github.com/TalOhana/angular-dark-mode/commits?author=talohana" title="Documentation">📖</a> <a href="#maintenance-talohana" title="Maintenance">🚧</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
