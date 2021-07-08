@@ -1,3 +1,15 @@
+# [3.0.0](https://github.com/talohana/angular-dark-mode/compare/v2.0.1...v3.0.0) (2021-07-08)
+
+
+### Features
+
+* angular v12 compatibility ([#17](https://github.com/talohana/angular-dark-mode/issues/17)) ([7c2604a](https://github.com/talohana/angular-dark-mode/commit/7c2604ac6d74c8c85cac5eb937c4d32fe1ddb5d6)), closes [#16](https://github.com/talohana/angular-dark-mode/issues/16)
+
+
+### BREAKING CHANGES
+
+* Node 10.0.0 and below are now longer supported
+
 ## [2.0.1](https://github.com/talohana/angular-dark-mode/compare/v2.0.0...v2.0.1) (2021-05-01)
 
 # [2.0.0](https://github.com/talohana/angular-dark-mode/compare/v1.1.4...v2.0.0) (2021-04-18)
