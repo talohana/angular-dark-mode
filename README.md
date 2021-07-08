@@ -14,7 +14,7 @@
 
 angular-dark-mode is a zero-dependency library that helps you integrate dark mode into you Angular applications with ease!
 
-Live demo on [this CodeSandbox](https://codesandbox.io/s/angular-dark-mode-example-4u3u3?file=/src/app/app.component.ts)
+[👉🏻 Live Demo 👈🏻](https://stackblitz.com/edit/angular-dark-mode-v3-example?file=src/app.component.ts)
 
 Inspired by the awesome [use-dark-mode](https://github.com/donavon/use-dark-mode) library
 
@@ -109,13 +109,13 @@ Save and run your application, play with the toggle button to change between mod
 
 `angular-dark-mode` ships with the following options:
 
-| Option          |                         Description                          |          Default Value   |
+| Option          |                         Description                          |            Default Value |
 | --------------- | :----------------------------------------------------------: | -----------------------: |
 | darkModeClass   |                   dark mode css class name                   |            `'dark-mode'` |
 | lightModeClass  |                  light mode css class name                   |           `'light-mode'` |
 | preloadingClass | css class name to flag that `element` is in preloading state | `'dark-mode-preloading'` |
 | storageKey      |            localStorage key to persist dark mode             |            `'dark-mode'` |
-| element         |         target HTMLElement to set given css classes          |        `document.body`   |
+| element         |         target HTMLElement to set given css classes          |          `document.body` |
 
 <br />
 
