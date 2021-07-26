@@ -5,7 +5,7 @@ import { DarkModeToggleComponent } from './dark-mode-toggle.component';
 
 @NgModule({
   declarations: [AppComponent, DarkModeToggleComponent],
-  imports: [BrowserModule],
+  imports: [BrowserModule.withServerTransition({ appId: 'serverApp' })],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
