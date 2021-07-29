@@ -3,41 +3,51 @@ import { fakeAsync, tick } from '@angular/core/testing';
 import { hot } from 'jest-marbles';
 import { when } from 'jest-when';
 import { DarkModeService } from '../dark-mode.service';
-import { defaultOptions } from '../default-options';
+import { LocalStorageService } from '../local-storage.service';
 import { MediaQueryService } from '../media-query.service';
 import { DarkModeOptions } from '../types';
 
+const defaultOptions: DarkModeOptions = {
+  darkModeClass: 'testDarkClass',
+  lightModeClass: 'testLightClass',
+  storageKey: 'testKey',
+  preloadingClass: 'testPreloadingClass',
+  element: document.body,
+};
+
 describe('DarkModeService', () => {
-  let rendererMock: Renderer2;
-  let rendererFactoryMock: RendererFactory2;
-  let mediaQueryServiceMock: MediaQueryService;
+  let rendererMock: Partial<Renderer2>;
+  let rendererFactoryMock: Partial<RendererFactory2>;
+  let mediaQueryServiceMock: Partial<MediaQueryService>;
+  let localStorageServiceMock: Partial<LocalStorageService>;
 
   const createService = (
     options?: Partial<DarkModeOptions>
   ): DarkModeService => {
     return new DarkModeService(
-      rendererFactoryMock,
-      mediaQueryServiceMock,
+      rendererFactoryMock as RendererFactory2,
+      mediaQueryServiceMock as MediaQueryService,
+      localStorageServiceMock as LocalStorageService,
+      defaultOptions,
       options as DarkModeOptions
     );
   };
 
   const mockLocalStorageDarkMode = (
     darkMode: boolean,
-    storageKey: string = defaultOptions.storageKey
+    storageKey = defaultOptions.storageKey
   ): void => {
-    when(localStorage.getItem as jest.Mock)
+    when(localStorageServiceMock.getItem as jest.Mock)
       .calledWith(storageKey)
       .mockReturnValue(JSON.stringify({ darkMode }));
   };
 
   beforeAll(() => {
-    rendererMock = ({
-      addClass: jest.fn(),
-      removeClass: jest.fn(),
-    } as unknown) as Renderer2;
+    rendererMock = { addClass: jest.fn(), removeClass: jest.fn() };
 
     rendererFactoryMock = { createRenderer: jest.fn() };
+
+    localStorageServiceMock = { getItem: jest.fn(), setItem: jest.fn() };
 
     mediaQueryServiceMock = {
       matchMedia: jest.fn(),
@@ -75,7 +85,7 @@ describe('DarkModeService', () => {
     });
 
     it('should prefer prefersDarkMode when localStorage contains invalid string value', () => {
-      when(localStorage.getItem as jest.Mock)
+      when(localStorageServiceMock.getItem as jest.Mock)
         .calledWith(defaultOptions.storageKey)
         .mockReturnValue(JSON.stringify({ invalidValue: true }));
 
@@ -91,7 +101,7 @@ describe('DarkModeService', () => {
     it('should prefer prefersDarkMode when localStorage contains invalid value', () => {
       global.console.error = jest.fn();
 
-      when(localStorage.getItem as jest.Mock)
+      when(localStorageServiceMock.getItem as jest.Mock)
         .calledWith(defaultOptions.storageKey)
         .mockReturnValue({ invalidValue: true });
 
@@ -106,7 +116,7 @@ describe('DarkModeService', () => {
     });
 
     it('should prefer localStorage darkMode value', () => {
-      when(localStorage.getItem as jest.Mock)
+      when(localStorageServiceMock.getItem as jest.Mock)
         .calledWith(defaultOptions.storageKey)
         .mockReturnValueOnce(JSON.stringify({ darkMode: true }))
         .mockReturnValueOnce(JSON.stringify({ darkMode: false }));
@@ -133,7 +143,7 @@ describe('DarkModeService', () => {
         storageKey: 'provided-storage-key',
       };
 
-      when(localStorage.getItem as jest.Mock)
+      when(localStorageServiceMock.getItem as jest.Mock)
         .calledWith(providedOptions.storageKey)
         .mockReturnValueOnce(JSON.stringify({ darkMode: true }))
         .mockReturnValueOnce(JSON.stringify({ darkMode: false }));

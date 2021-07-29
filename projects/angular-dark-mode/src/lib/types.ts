@@ -3,5 +3,5 @@ export interface DarkModeOptions {
   lightModeClass: string;
   preloadingClass: string;
   storageKey: string;
-  element: HTMLElement;
+  element: HTMLElement | null;
 }

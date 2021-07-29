@@ -10,10 +10,6 @@
   "scripts": {
     "ng": "ng",
     "start:app": "ng serve angular-dark-mode-app",
-    "dev:ssr": "ng run angular-dark-mode-app:serve-ssr",
-    "serve:ssr": "node dist/angular-dark-mode-app/server/main.js",
-    "build:ssr": "ng build && ng run angular-dark-mode-app:server",
-    "prerender": "ng run angular-dark-mode-app:prerender",
     "build:lib": "ng build --configuration production angular-dark-mode",
     "test": "jest --config jest.config.js",
     "test:watch": "jest --config jest.config.js --watch",
@@ -27,7 +23,11 @@
     "clean": "rimraf dist",
     "semantic-release": "semantic-release",
     "contributors:add": "all-contributors add",
-    "contributors:generate": "all-contributors generate"
+    "contributors:generate": "all-contributors generate",
+    "dev:ssr": "ng run angular-dark-mode-app:serve-ssr",
+    "serve:ssr": "node dist/angular-dark-mode-app/server/main.js",
+    "build:ssr": "ng build && ng run angular-dark-mode-app:server",
+    "prerender": "ng run angular-dark-mode-app:prerender"
   },
   "dependencies": {
     "@angular/animations": "~12.1.1",
@@ -37,9 +37,8 @@
     "@angular/forms": "~12.1.1",
     "@angular/platform-browser": "~12.1.1",
     "@angular/platform-browser-dynamic": "~12.1.1",
-    "@angular/platform-server": "~12.1.1",
     "@angular/router": "~12.1.1",
-    "@nguniversal/express-engine": "12.1.0",
+    "@nguniversal/express-engine": "^12.1.0",
     "all-contributors-cli": "^6.20.0",
     "express": "^4.15.2",
     "rxjs": "~6.6.0",
