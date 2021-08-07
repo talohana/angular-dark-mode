@@ -24,19 +24,17 @@ Inspired by the awesome [use-dark-mode](https://github.com/donavon/use-dark-mode
 
 ## Installation
 
-To use angular-dark-mode in your project install it via npm:
+1. Install via npm: `npm i angular-dark-mode` or yarn: `yarn add angular-dark-mode`
+2. Add `DarkModeModule` (to provide default options):
 
-```
-npm i angular-dark-mode
-```
-
-or if you are using yarn:
-
-```
-yarn add angular-dark-mode
+```ts
+@NgModule({
+  imports: [DarkModeModule],
+})
+export class AppModule {}
 ```
 
-and add `angular-dark-mode.js` file to `angular.json` scripts section:
+3. Add `angular-dark-mode.js` file to `angular.json` scripts section:
 
 ```json
 {
@@ -157,13 +155,9 @@ It is often useful to transition the changes between dark and light modes, and m
 
 ```css
 /* styles.css */
-...
-
 body:not(.dark-mode-preloading) {
   transition: all 0.3s linear;
 }
-
-...
 ```
 
 ## Contributors
