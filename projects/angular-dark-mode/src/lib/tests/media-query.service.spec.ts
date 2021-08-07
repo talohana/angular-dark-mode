@@ -1,13 +1,22 @@
+import { isPlatformBrowser } from '@angular/common';
 import { when } from 'jest-when';
 import { prefersDarkSchemeQuery } from '../media-query';
 import { MediaQueryService } from '../media-query.service';
+
+jest.mock('@angular/common', () => ({ isPlatformBrowser: jest.fn() }));
 
 describe('MediaQueryService', () => {
   let mediaQueryService: MediaQueryService;
 
   beforeEach(() => {
     jest.resetAllMocks();
-    mediaQueryService = new MediaQueryService();
+
+    /* By default, test in browser environment */
+    when(isPlatformBrowser as jest.Mock)
+      .calledWith(expect.anything())
+      .mockReturnValue(true);
+
+    mediaQueryService = new MediaQueryService({});
   });
 
   describe('matchMedia', () => {
@@ -50,6 +59,18 @@ describe('MediaQueryService', () => {
       expect(prefersDarkMode).toBe(false);
       expect(global.matchMedia).toHaveBeenCalledTimes(1);
       expect(global.matchMedia).toHaveBeenCalledWith(prefersDarkSchemeQuery);
+    });
+
+    it('should return false on non-browser environment', () => {
+      when(isPlatformBrowser as jest.Mock)
+        .calledWith(expect.anything())
+        .mockReturnValue(false);
+      mediaQueryService = new MediaQueryService({});
+
+      const prefersDarkMode = mediaQueryService.prefersDarkMode();
+
+      expect(prefersDarkMode).toBe(false);
+      expect(global.matchMedia).not.toBeCalled();
     });
   });
 });

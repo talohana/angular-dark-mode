@@ -229,6 +229,18 @@ describe('DarkModeService', () => {
       darkModeService.enable();
       expect(buffer).toEqual([true]);
     });
+
+    it('should not render when element is null', () => {
+      const darkModeService = createService({
+        ...defaultOptions,
+        element: null,
+      });
+
+      darkModeService.enable();
+
+      expect(rendererMock.removeClass).not.toBeCalled();
+      expect(rendererMock.addClass).not.toBeCalled();
+    });
   });
 
   describe('disable', () => {
@@ -260,6 +272,18 @@ describe('DarkModeService', () => {
 
       darkModeService.disable();
       expect(buffer).toEqual([false]);
+    });
+
+    it('should not render when element is null', () => {
+      const darkModeService = createService({
+        ...defaultOptions,
+        element: null,
+      });
+
+      darkModeService.disable();
+
+      expect(rendererMock.removeClass).not.toBeCalled();
+      expect(rendererMock.addClass).not.toBeCalled();
     });
   });
 });
