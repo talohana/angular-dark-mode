@@ -8,8 +8,9 @@ import {
 import { BehaviorSubject, Observable } from 'rxjs';
 import { distinctUntilChanged } from 'rxjs/operators';
 import { DARK_MODE_OPTIONS } from './dark-mode-options';
-import { defaultOptions } from './default-options';
+import { DARK_MODE_DEFAULT_OPTIONS } from './default-options';
 import { isNil } from './isNil';
+import { LocalStorageService } from './local-storage.service';
 import { MediaQueryService } from './media-query.service';
 import { DarkModeOptions } from './types';
 
@@ -22,6 +23,8 @@ export class DarkModeService {
   constructor(
     private rendererFactory: RendererFactory2,
     private mediaQueryService: MediaQueryService,
+    private localStorageService: LocalStorageService,
+    @Inject(DARK_MODE_DEFAULT_OPTIONS) defaultOptions: DarkModeOptions,
     // prettier-ignore
     @Optional() @Inject(DARK_MODE_OPTIONS) private providedOptions: DarkModeOptions | null
   ) {
@@ -46,16 +49,24 @@ export class DarkModeService {
 
   enable(): void {
     const { element, darkModeClass, lightModeClass } = this.options;
-    this.renderer.removeClass(element, lightModeClass);
-    this.renderer.addClass(element, darkModeClass);
+
+    if (element) {
+      this.renderer.removeClass(element, lightModeClass);
+      this.renderer.addClass(element, darkModeClass);
+    }
+
     this.saveDarkModeToStorage(true);
     this.darkModeSubject$.next(true);
   }
 
   disable(): void {
     const { element, darkModeClass, lightModeClass } = this.options;
-    this.renderer.removeClass(element, darkModeClass);
-    this.renderer.addClass(element, lightModeClass);
+
+    if (element) {
+      this.renderer.removeClass(element, darkModeClass);
+      this.renderer.addClass(element, lightModeClass);
+    }
+
     this.saveDarkModeToStorage(false);
     this.darkModeSubject$.next(false);
   }
@@ -71,11 +82,16 @@ export class DarkModeService {
   }
 
   private saveDarkModeToStorage(darkMode: boolean): void {
-    localStorage.setItem(this.options.storageKey, JSON.stringify({ darkMode }));
+    this.localStorageService.setItem(
+      this.options.storageKey,
+      JSON.stringify({ darkMode })
+    );
   }
 
   private getDarkModeFromStorage(): boolean | null {
-    const storageItem = localStorage.getItem(this.options.storageKey);
+    const storageItem = this.localStorageService.getItem(
+      this.options.storageKey
+    );
 
     if (storageItem) {
       try {
@@ -93,12 +109,14 @@ export class DarkModeService {
   }
 
   private removePreloadingClass(): void {
-    // defer to next tick
-    setTimeout(() => {
-      this.renderer.removeClass(
-        this.options.element,
-        this.options.preloadingClass
-      );
-    });
+    if (this.options.element) {
+      // defer to next tick
+      setTimeout(() => {
+        this.renderer.removeClass(
+          this.options.element,
+          this.options.preloadingClass
+        );
+      });
+    }
   }
 }
