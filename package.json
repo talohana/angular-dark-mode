@@ -34,7 +34,6 @@
     "@angular/platform-browser": "~12.1.1",
     "@angular/platform-browser-dynamic": "~12.1.1",
     "@angular/router": "~12.1.1",
-    "all-contributors-cli": "^6.20.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
@@ -52,6 +51,7 @@
     "@types/node": "^12.11.1",
     "@typescript-eslint/eslint-plugin": "^4.3.0",
     "@typescript-eslint/parser": "^4.3.0",
+    "all-contributors-cli": "^6.20.0",
     "commitizen": "^4.2.1",
     "eslint": "^7.10.0",
     "eslint-config-prettier": "^6.12.0",
