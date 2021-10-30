@@ -1,3 +1,10 @@
+## [3.0.2](https://github.com/talohana/angular-dark-mode/compare/v3.0.1...v3.0.2) (2021-10-30)
+
+
+### Bug Fixes
+
+* **script:** change nullish condition ([#26](https://github.com/talohana/angular-dark-mode/issues/26)) ([4a19ba2](https://github.com/talohana/angular-dark-mode/commit/4a19ba20c6baa92557c8ff435c4c13906affa519))
+
 ## [3.0.1](https://github.com/talohana/angular-dark-mode/compare/v3.0.0...v3.0.1) (2021-08-09)
 
 # [3.0.0](https://github.com/talohana/angular-dark-mode/compare/v2.0.1...v3.0.0) (2021-07-08)
