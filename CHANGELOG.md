@@ -1,3 +1,5 @@
+## [3.0.3](https://github.com/talohana/angular-dark-mode/compare/v3.0.2...v3.0.3) (2022-10-08)
+
 ## [3.0.2](https://github.com/talohana/angular-dark-mode/compare/v3.0.1...v3.0.2) (2021-10-30)
 
 
