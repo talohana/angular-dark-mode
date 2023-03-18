@@ -15,7 +15,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x, 16.x, 14.x]
+        node-version: [18.x, 16.x]
 
     steps:
       - name: Checkout code
@@ -60,5 +60,6 @@ jobs:
 
       - name: Semantic Release
         env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: yarn semantic-release
