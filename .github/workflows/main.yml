@@ -8,6 +8,10 @@ on:
   push:
     branches:
       - main
+      - next
+      - next-major
+      - beta
+      - alpha
 
 jobs:
   build:
@@ -15,7 +19,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x, 16.x]
+        node-version: [18.x]
 
     steps:
       - name: Checkout code
@@ -44,7 +48,13 @@ jobs:
   release:
     runs-on: ubuntu-latest
     needs: build
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    if: 
+      contains('
+      main
+      next
+      next-major
+      beta
+      alpha', github.ref)
 
     steps:
       - name: Checkout code
@@ -57,6 +67,9 @@ jobs:
       
       - name: Install Dependencies
         run: yarn install
+
+      - name: Package
+        run: yarn package
 
       - name: Semantic Release
         env:
