@@ -1,3 +1,10 @@
+## [3.0.4](https://github.com/talohana/angular-dark-mode/compare/v3.0.3...v3.0.4) (2023-03-20)
+
+
+### Reverts
+
+* Revert "ci: remove unneeded steps from release job (#46)" (#48) ([6bd028b](https://github.com/talohana/angular-dark-mode/commit/6bd028bd0e0f9cc2e3637c2f251ed5c2efeb114c)), closes [#46](https://github.com/talohana/angular-dark-mode/issues/46) [#48](https://github.com/talohana/angular-dark-mode/issues/48)
+
 ## [3.0.3](https://github.com/talohana/angular-dark-mode/compare/v3.0.2...v3.0.3) (2022-10-08)
 
 ## [3.0.2](https://github.com/talohana/angular-dark-mode/compare/v3.0.1...v3.0.2) (2021-10-30)
