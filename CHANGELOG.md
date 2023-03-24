@@ -1,3 +1,10 @@
+# [3.1.0](https://github.com/talohana/angular-dark-mode/compare/v3.0.4...v3.1.0) (2023-03-24)
+
+
+### Features
+
+* support angular v13 ([#42](https://github.com/talohana/angular-dark-mode/issues/42)) ([8938fe8](https://github.com/talohana/angular-dark-mode/commit/8938fe8d93eb5a36cf178cbab2593229dd45212c)), closes [#41](https://github.com/talohana/angular-dark-mode/issues/41)
+
 ## [3.0.4](https://github.com/talohana/angular-dark-mode/compare/v3.0.3...v3.0.4) (2023-03-20)
 
 
