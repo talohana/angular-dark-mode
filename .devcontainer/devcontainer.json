@@ -1,0 +1,16 @@
+{
+	"name": "angular-dark-mode",
+	"image": "mcr.microsoft.com/devcontainers/typescript-node:0-18",
+	"runArgs": [
+		"--name",
+		"angular-dark-mode"
+	],
+	"features": {
+		"ghcr.io/devcontainers-contrib/features/angular-cli:2": {
+			"version": "latest"
+		}
+	},
+	"forwardPorts": [
+		4200
+	]
+}
