@@ -23,7 +23,8 @@
     "clean": "rimraf dist",
     "semantic-release": "semantic-release",
     "contributors:add": "all-contributors add",
-    "contributors:generate": "all-contributors generate"
+    "contributors:generate": "all-contributors generate",
+    "prepare": "husky"
   },
   "dependencies": {
     "@angular/animations": "~17.1.2",
