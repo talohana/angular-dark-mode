@@ -26,8 +26,7 @@
         "@schematics/angular:interceptor": {
           "skipTests": true
         },
-        "@schematics/angular:module": {
-        },
+        "@schematics/angular:module": {},
         "@schematics/angular:pipe": {
           "skipTests": true
         },
@@ -47,9 +46,16 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.css"],
-            "scripts": ["./projects/angular-dark-mode/angular-dark-mode.js"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.css"
+            ],
+            "scripts": [
+              "./projects/angular-dark-mode/angular-dark-mode.js"
+            ],
             "vendorChunk": true,
             "extractLicenses": false,
             "buildOptimizer": false,
@@ -91,18 +97,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-dark-mode-app:build"
+            "buildTarget": "angular-dark-mode-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-dark-mode-app:build:production"
+              "buildTarget": "angular-dark-mode-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-dark-mode-app:build"
+            "buildTarget": "angular-dark-mode-app:build"
           }
         }
       }
@@ -127,6 +133,5 @@
         }
       }
     }
-  },
-  "defaultProject": "angular-dark-mode-app"
+  }
 }

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { DarkModeService } from 'angular-dark-mode';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-dark-mode-toggle',
@@ -8,7 +7,7 @@ import { Observable } from 'rxjs';
     <input
       id="darkMode"
       type="checkbox"
-      [checked]="darkMode$ | async"
+      [checked]="darkMode$()"
       (change)="onToggle()"
       class="toggle"
     />
@@ -59,7 +58,7 @@ import { Observable } from 'rxjs';
   ],
 })
 export class DarkModeToggleComponent {
-  readonly darkMode$: Observable<boolean> = this.darkModeService.darkMode$;
+  readonly darkMode$ = this.darkModeService.darkMode$;
 
   constructor(private darkModeService: DarkModeService) {}
 
