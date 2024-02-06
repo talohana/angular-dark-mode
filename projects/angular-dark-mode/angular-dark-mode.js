@@ -1,6 +1,6 @@
-/*  
+/*
   If you use the default settings, include this in you angular.json scripts section
-  
+
   If you changed the default settings:
     1) copy this script to your project
     2) change relevant settings
