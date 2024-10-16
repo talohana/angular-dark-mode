@@ -1,6 +1,5 @@
 import { Renderer2, RendererFactory2 } from '@angular/core';
 import { fakeAsync, tick } from '@angular/core/testing';
-import { hot } from 'jest-marbles';
 import { when } from 'jest-when';
 import { DarkModeService } from '../dark-mode.service';
 import { defaultOptions } from '../default-options';
@@ -32,10 +31,10 @@ describe('DarkModeService', () => {
   };
 
   beforeAll(() => {
-    rendererMock = ({
+    rendererMock = {
       addClass: jest.fn(),
       removeClass: jest.fn(),
-    } as unknown) as Renderer2;
+    } as unknown as Renderer2;
 
     rendererFactoryMock = { createRenderer: jest.fn() };
 
@@ -60,14 +59,14 @@ describe('DarkModeService', () => {
         .mockReturnValueOnce(false);
 
       let darkModeService = createService();
-      expect(darkModeService.darkMode$).toBeObservable(hot('a', { a: true }));
+      expect(darkModeService.darkMode$()).toBe(true);
       expect(rendererMock.addClass).toHaveBeenCalledWith(
         defaultOptions.element,
         defaultOptions.darkModeClass
       );
 
       darkModeService = createService();
-      expect(darkModeService.darkMode$).toBeObservable(hot('a', { a: false }));
+      expect(darkModeService.darkMode$()).toBe(false);
       expect(rendererMock.addClass).toHaveBeenCalledWith(
         defaultOptions.element,
         defaultOptions.lightModeClass
@@ -85,7 +84,7 @@ describe('DarkModeService', () => {
 
       const darkModeService = createService();
 
-      expect(darkModeService.darkMode$).toBeObservable(hot('a', { a: true }));
+      expect(darkModeService.darkMode$()).toBe(true);
     });
 
     it('should prefer prefersDarkMode when localStorage contains invalid value', () => {
@@ -101,7 +100,7 @@ describe('DarkModeService', () => {
 
       const darkModeService = createService();
 
-      expect(darkModeService.darkMode$).toBeObservable(hot('a', { a: true }));
+      expect(darkModeService.darkMode$()).toBe(true);
       expect(global.console.error).toHaveReturnedTimes(1);
     });
 
@@ -112,14 +111,14 @@ describe('DarkModeService', () => {
         .mockReturnValueOnce(JSON.stringify({ darkMode: false }));
 
       let darkModeService = createService();
-      expect(darkModeService.darkMode$).toBeObservable(hot('a', { a: true }));
+      expect(darkModeService.darkMode$()).toBe(true);
       expect(rendererMock.addClass).toHaveBeenCalledWith(
         defaultOptions.element,
         defaultOptions.darkModeClass
       );
 
       darkModeService = createService();
-      expect(darkModeService.darkMode$).toBeObservable(hot('a', { a: false }));
+      expect(darkModeService.darkMode$()).toBe(false);
       expect(rendererMock.addClass).toHaveBeenCalledWith(
         defaultOptions.element,
         defaultOptions.lightModeClass
@@ -139,14 +138,14 @@ describe('DarkModeService', () => {
         .mockReturnValueOnce(JSON.stringify({ darkMode: false }));
 
       let darkModeService = createService(providedOptions);
-      expect(darkModeService.darkMode$).toBeObservable(hot('a', { a: true }));
+      expect(darkModeService.darkMode$()).toBe(true);
       expect(rendererMock.addClass).toHaveBeenCalledWith(
         defaultOptions.element,
         providedOptions.darkModeClass
       );
 
       darkModeService = createService(providedOptions);
-      expect(darkModeService.darkMode$).toBeObservable(hot('a', { a: false }));
+      expect(darkModeService.darkMode$()).toBe(false);
       expect(rendererMock.addClass).toHaveBeenCalledWith(
         defaultOptions.element,
         providedOptions.lightModeClass
@@ -172,20 +171,18 @@ describe('DarkModeService', () => {
       // start with true
       mockLocalStorageDarkMode(true);
 
-      const buffer: boolean[] = [];
-
       const darkModeService = createService();
+      const darkModeValue = darkModeService.darkMode$.asReadonly();
 
-      darkModeService.darkMode$.subscribe(v => buffer.push(v));
-      expect(buffer).toEqual([true]);
+      expect(darkModeValue()).toEqual(true);
 
       // true => false
       darkModeService.toggle();
-      expect(buffer).toEqual([true, false]);
+      expect(darkModeValue()).toEqual(false);
 
       // false => true
       darkModeService.toggle();
-      expect(buffer).toEqual([true, false, true]);
+      expect(darkModeValue()).toEqual(true);
     });
   });
 
@@ -194,30 +191,26 @@ describe('DarkModeService', () => {
       // start with false
       mockLocalStorageDarkMode(false);
 
-      const buffer: boolean[] = [];
-
       const darkModeService = createService();
+      const darkModeValue = darkModeService.darkMode$.asReadonly();
 
-      darkModeService.darkMode$.subscribe(v => buffer.push(v));
-      expect(buffer).toEqual([false]);
+      expect(darkModeValue()).toEqual(false);
 
       darkModeService.enable();
-      expect(buffer).toEqual([false, true]);
+      expect(darkModeValue()).toEqual(true);
     });
 
     it('should not emit when already enabled', () => {
       // start with true
       mockLocalStorageDarkMode(true);
 
-      const buffer: boolean[] = [];
-
       const darkModeService = createService();
+      const darkModeValue = darkModeService.darkMode$.asReadonly();
 
-      darkModeService.darkMode$.subscribe(v => buffer.push(v));
-      expect(buffer).toEqual([true]);
+      expect(darkModeValue()).toEqual(true);
 
       darkModeService.enable();
-      expect(buffer).toEqual([true]);
+      expect(darkModeValue()).toEqual(true);
     });
   });
 
@@ -226,30 +219,26 @@ describe('DarkModeService', () => {
       // start with true
       mockLocalStorageDarkMode(true);
 
-      const buffer: boolean[] = [];
-
       const darkModeService = createService();
+      const darkModeValue = darkModeService.darkMode$.asReadonly();
 
-      darkModeService.darkMode$.subscribe(v => buffer.push(v));
-      expect(buffer).toEqual([true]);
+      expect(darkModeValue()).toEqual(true);
 
       darkModeService.disable();
-      expect(buffer).toEqual([true, false]);
+      expect(darkModeValue()).toEqual(false);
     });
 
     it('should not emit when already disabled', () => {
       // start with false
       mockLocalStorageDarkMode(false);
 
-      const buffer: boolean[] = [];
-
       const darkModeService = createService();
+      const darkModeValue = darkModeService.darkMode$.asReadonly();
 
-      darkModeService.darkMode$.subscribe(v => buffer.push(v));
-      expect(buffer).toEqual([false]);
+      expect(darkModeValue()).toEqual(false);
 
       darkModeService.disable();
-      expect(buffer).toEqual([false]);
+      expect(darkModeValue()).toEqual(false);
     });
   });
 });
