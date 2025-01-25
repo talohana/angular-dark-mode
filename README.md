@@ -42,6 +42,29 @@ and add `angular-dark-mode.js` file to `angular.json` scripts section:
 {
   "scripts": ["./node_modules/angular-dark-mode/angular-dark-mode.js"]
 }
+
+```
+
+or provide it inside the `app.module.ts` file 
+
+```typescript
+import { DarkModeService } from 'angular-dark-mode'
+
+export function initDarkMode(darkModeService: DarkModeService) {
+  return () => darkModeService
+}
+
+@NgModule({
+// ...
+providers: [
+    {
+      provide: APP_INITIALIZER, // If you wish to instantiate it before the App renders
+      useFactory: initDarkMode,
+      deps: [DarkModeService],
+      multi: true,
+    },
+]
+})
 ```
 
 if you are using custom configuration see [angular-dark-mode.js](#angular-dark-mode.js)
@@ -62,7 +85,7 @@ In order to use angular-dark-mode you need to inject the service somewhere in yo
   />`,
 })
 export class DarkModeToggle {
-  darkMode$: Observable<boolean> = this.darkModeService.darkMode$;
+  darkMode$ = this.darkModeService.darkMode$.asReadonly();
 
   constructor(private darkModeService: DarkModeService) {}
 
