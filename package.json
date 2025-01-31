@@ -50,7 +50,7 @@
     "@types/jest-when": "^3.5.2",
     "@types/node": "^18.15.3",
     "@typescript-eslint/eslint-plugin": "^4.3.0",
-    "@typescript-eslint/parser": "^4.3.0",
+    "@typescript-eslint/parser": "^4.33.0",
     "all-contributors-cli": "^6.20.0",
     "commitizen": "^4.2.1",
     "eslint": "^7.10.0",
